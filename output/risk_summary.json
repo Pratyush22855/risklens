@@ -1,0 +1,150 @@
+{
+  "seed": 42,
+  "transactions_analyzed": 663,
+  "decisions": {
+    "ALLOW": 614,
+    "REVIEW": 27,
+    "BLOCK": 22
+  },
+  "decision_rates_pct": {
+    "ALLOW": 92.6,
+    "REVIEW": 4.1,
+    "BLOCK": 3.3
+  },
+  "risk_score": {
+    "mean": 6.32,
+    "median": 0.0,
+    "p95": 35.0,
+    "max": 100
+  },
+  "thresholds": {
+    "review": 30,
+    "block": 60
+  },
+  "control_frequency": [
+    {
+      "control": "High-risk IP",
+      "times_triggered": 75,
+      "avg_points": 16.5
+    },
+    {
+      "control": "New device",
+      "times_triggered": 39,
+      "avg_points": 15.0
+    },
+    {
+      "control": "New account",
+      "times_triggered": 37,
+      "avg_points": 5.7
+    },
+    {
+      "control": "High-risk merchant category",
+      "times_triggered": 32,
+      "avg_points": 8.0
+    },
+    {
+      "control": "New country",
+      "times_triggered": 26,
+      "avg_points": 20.0
+    },
+    {
+      "control": "Unusual transaction amount",
+      "times_triggered": 24,
+      "avg_points": 21.8
+    },
+    {
+      "control": "Transaction velocity",
+      "times_triggered": 23,
+      "avg_points": 18.0
+    },
+    {
+      "control": "Failed logins",
+      "times_triggered": 16,
+      "avg_points": 13.1
+    },
+    {
+      "control": "Impossible travel",
+      "times_triggered": 8,
+      "avg_points": 30.0
+    },
+    {
+      "control": "Implausible travel",
+      "times_triggered": 1,
+      "avg_points": 15.0
+    }
+  ],
+  "decisions_by_scenario": {
+    "account_takeover": {
+      "ALLOW": 0,
+      "REVIEW": 0,
+      "BLOCK": 16
+    },
+    "amount_spike": {
+      "ALLOW": 4,
+      "REVIEW": 4,
+      "BLOCK": 0
+    },
+    "benign_new_device": {
+      "ALLOW": 8,
+      "REVIEW": 0,
+      "BLOCK": 0
+    },
+    "benign_travel": {
+      "ALLOW": 8,
+      "REVIEW": 0,
+      "BLOCK": 0
+    },
+    "impossible_travel": {
+      "ALLOW": 0,
+      "REVIEW": 2,
+      "BLOCK": 6
+    },
+    "ip_anomaly": {
+      "ALLOW": 0,
+      "REVIEW": 6,
+      "BLOCK": 0
+    },
+    "normal": {
+      "ALLOW": 562,
+      "REVIEW": 0,
+      "BLOCK": 0
+    },
+    "velocity_burst": {
+      "ALLOW": 32,
+      "REVIEW": 15,
+      "BLOCK": 0
+    }
+  },
+  "top_risk_transactions": [
+    {
+      "transaction_id": "TXN-000502",
+      "user_id": "U0006",
+      "risk_score": 100,
+      "decision": "BLOCK"
+    },
+    {
+      "transaction_id": "TXN-000509",
+      "user_id": "U0012",
+      "risk_score": 100,
+      "decision": "BLOCK"
+    },
+    {
+      "transaction_id": "TXN-000510",
+      "user_id": "U0005",
+      "risk_score": 100,
+      "decision": "BLOCK"
+    },
+    {
+      "transaction_id": "TXN-000580",
+      "user_id": "U0028",
+      "risk_score": 100,
+      "decision": "BLOCK"
+    },
+    {
+      "transaction_id": "TXN-000597",
+      "user_id": "U0023",
+      "risk_score": 100,
+      "decision": "BLOCK"
+    }
+  ]
+}

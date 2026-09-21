@@ -1,0 +1,259 @@
+transaction_id,timestamp,user_id,amount,currency,device_id,ip_address,ip_risk_score,country,city,latitude,longitude,merchant_category,account_age_days,failed_login_attempts,scenario,risk_score,decision,triggered_controls,control_points,explanation
+TXN-000502,2026-04-02T23:43:07Z,U0006,696.02,USD,DEV-ATK-007,203.0.113.146,94.1,AU,Sydney,-33.8588,151.2086,gift_cards,40,3,account_takeover,100,BLOCK,Unusual transaction amount; New device; New country; High-risk IP; Failed logins; High-risk merchant category,"{""Unusual transaction amount"": 20, ""New device"": 15, ""New country"": 20, ""High-risk IP"": 30, ""Failed logins"": 10, ""High-risk merchant category"": 8}","Risk score: 100/100 -> BLOCK (REVIEW >= 30, BLOCK >= 60) [raw total 103 capped at 100]
+Triggered controls:
+  - Unusual transaction amount: +20 ($696.02 is 9.9x the user's median of $70.61)
+  - New device: +15 (device DEV-ATK-007 not seen before for this user)
+  - New country: +20 (AU not in previously seen countries (US))
+  - High-risk IP: +30 (IP 203.0.113.146 reputation risk 94/100)
+  - Failed logins: +10 (3 failed login attempts before this transaction)
+  - High-risk merchant category: +8 (category 'gift_cards')"
+TXN-000509,2026-04-04T09:47:55Z,U0012,336.63,USD,DEV-ATK-009,198.51.100.94,92.6,SG,Singapore,1.2999,103.7936,gift_cards,257,3,account_takeover,100,BLOCK,Unusual transaction amount; New device; New country; High-risk IP; Failed logins; High-risk merchant category,"{""Unusual transaction amount"": 30, ""New device"": 15, ""New country"": 20, ""High-risk IP"": 30, ""Failed logins"": 10, ""High-risk merchant category"": 8}","Risk score: 100/100 -> BLOCK (REVIEW >= 30, BLOCK >= 60) [raw total 113 capped at 100]
+Triggered controls:
+  - Unusual transaction amount: +30 ($336.63 is 12.9x the user's median of $26.05)
+  - New device: +15 (device DEV-ATK-009 not seen before for this user)
+  - New country: +20 (SG not in previously seen countries (US))
+  - High-risk IP: +30 (IP 198.51.100.94 reputation risk 93/100)
+  - Failed logins: +10 (3 failed login attempts before this transaction)
+  - High-risk merchant category: +8 (category 'gift_cards')"
+TXN-000510,2026-04-04T09:49:43Z,U0005,205.74,USD,DEV-ATK-006,203.0.113.135,94.5,GB,London,51.5446,-0.1305,crypto_exchange,678,6,account_takeover,100,BLOCK,Unusual transaction amount; New device; New country; High-risk IP; Failed logins; High-risk merchant category,"{""Unusual transaction amount"": 12, ""New device"": 15, ""New country"": 20, ""High-risk IP"": 30, ""Failed logins"": 15, ""High-risk merchant category"": 8}","Risk score: 100/100 -> BLOCK (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Unusual transaction amount: +12 ($205.74 is 5.2x the user's median of $39.42)
+  - New device: +15 (device DEV-ATK-006 not seen before for this user)
+  - New country: +20 (GB not in previously seen countries (US))
+  - High-risk IP: +30 (IP 203.0.113.135 reputation risk 94/100)
+  - Failed logins: +15 (6 failed login attempts before this transaction)
+  - High-risk merchant category: +8 (category 'crypto_exchange')"
+TXN-000580,2026-04-07T17:56:43Z,U0028,1248.8,USD,DEV-ATK-003,192.0.2.189,85.0,SG,Singapore,1.3391,103.8123,retail,1230,7,account_takeover,100,BLOCK,Unusual transaction amount; New device; New country; High-risk IP; Failed logins,"{""Unusual transaction amount"": 20, ""New device"": 15, ""New country"": 20, ""High-risk IP"": 30, ""Failed logins"": 15}","Risk score: 100/100 -> BLOCK (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Unusual transaction amount: +20 ($1,248.80 is 11.0x the user's median of $113.45)
+  - New device: +15 (device DEV-ATK-003 not seen before for this user)
+  - New country: +20 (SG not in previously seen countries (US))
+  - High-risk IP: +30 (IP 192.0.2.189 reputation risk 85/100)
+  - Failed logins: +15 (7 failed login attempts before this transaction)"
+TXN-000597,2026-04-08T18:16:53Z,U0023,336.93,USD,DEV-ATK-001,203.0.113.18,96.0,DE,Berlin,52.4932,13.4268,crypto_exchange,61,7,account_takeover,100,BLOCK,Unusual transaction amount; New device; New country; High-risk IP; Failed logins; High-risk merchant category,"{""Unusual transaction amount"": 20, ""New device"": 15, ""New country"": 20, ""High-risk IP"": 30, ""Failed logins"": 15, ""High-risk merchant category"": 8}","Risk score: 100/100 -> BLOCK (REVIEW >= 30, BLOCK >= 60) [raw total 108 capped at 100]
+Triggered controls:
+  - Unusual transaction amount: +20 ($336.93 is 11.8x the user's median of $28.64)
+  - New device: +15 (device DEV-ATK-001 not seen before for this user)
+  - New country: +20 (DE not in previously seen countries (US))
+  - High-risk IP: +30 (IP 203.0.113.18 reputation risk 96/100)
+  - Failed logins: +15 (7 failed login attempts before this transaction)
+  - High-risk merchant category: +8 (category 'crypto_exchange')"
+TXN-000643,2026-04-13T15:40:15Z,U0026,2630.61,USD,DEV-ATK-005,192.0.2.40,83.3,NG,Lagos,6.4751,3.4165,retail,449,7,account_takeover,100,BLOCK,Unusual transaction amount; New device; New country; High-risk IP; Failed logins,"{""Unusual transaction amount"": 30, ""New device"": 15, ""New country"": 20, ""High-risk IP"": 20, ""Failed logins"": 15}","Risk score: 100/100 -> BLOCK (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Unusual transaction amount: +30 ($2,630.61 is 14.7x the user's median of $178.72)
+  - New device: +15 (device DEV-ATK-005 not seen before for this user)
+  - New country: +20 (NG not in previously seen countries (US))
+  - High-risk IP: +20 (IP 192.0.2.40 reputation risk 83/100)
+  - Failed logins: +15 (7 failed login attempts before this transaction)"
+TXN-000608,2026-04-09T22:32:47Z,U0055,155.33,USD,DEV-ATK-011,192.0.2.106,80.6,DE,Berlin,52.4608,13.4038,retail,383,5,account_takeover,97,BLOCK,Unusual transaction amount; New device; New country; High-risk IP; Implausible travel; Failed logins,"{""Unusual transaction amount"": 12, ""New device"": 15, ""New country"": 20, ""High-risk IP"": 20, ""Implausible travel"": 15, ""Failed logins"": 15}","Risk score: 97/100 -> BLOCK (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Unusual transaction amount: +12 ($155.33 is 5.1x the user's median of $30.18)
+  - New device: +15 (device DEV-ATK-011 not seen before for this user)
+  - New country: +20 (DE not in previously seen countries (US))
+  - High-risk IP: +20 (IP 192.0.2.106 reputation risk 81/100)
+  - Implausible travel: +15 (7,083 km in 9.5 h (~747 km/h))
+  - Failed logins: +15 (5 failed login attempts before this transaction)"
+TXN-000526,2026-04-04T20:21:14Z,U0014,777.78,USD,DEV-ATK-002,198.51.100.150,74.0,GB,London,51.519,-0.1281,wire_transfer,1512,3,account_takeover,93,BLOCK,Unusual transaction amount; New device; New country; High-risk IP; Failed logins; High-risk merchant category,"{""Unusual transaction amount"": 20, ""New device"": 15, ""New country"": 20, ""High-risk IP"": 20, ""Failed logins"": 10, ""High-risk merchant category"": 8}","Risk score: 93/100 -> BLOCK (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Unusual transaction amount: +20 ($777.78 is 11.4x the user's median of $68.27)
+  - New device: +15 (device DEV-ATK-002 not seen before for this user)
+  - New country: +20 (GB not in previously seen countries (US))
+  - High-risk IP: +20 (IP 198.51.100.150 reputation risk 74/100)
+  - Failed logins: +10 (3 failed login attempts before this transaction)
+  - High-risk merchant category: +8 (category 'wire_transfer')"
+TXN-000527,2026-04-04T20:24:14Z,U0014,645.27,USD,DEV-ATK-002,198.51.100.150,74.0,GB,London,51.5424,-0.1658,wire_transfer,1512,3,account_takeover,93,BLOCK,Unusual transaction amount; New device; New country; High-risk IP; Failed logins; High-risk merchant category,"{""Unusual transaction amount"": 20, ""New device"": 15, ""New country"": 20, ""High-risk IP"": 20, ""Failed logins"": 10, ""High-risk merchant category"": 8}","Risk score: 93/100 -> BLOCK (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Unusual transaction amount: +20 ($645.27 is 9.5x the user's median of $68.27)
+  - New device: +15 (device DEV-ATK-002 not seen before for this user)
+  - New country: +20 (GB not in previously seen countries (US))
+  - High-risk IP: +20 (IP 198.51.100.150 reputation risk 74/100)
+  - Failed logins: +10 (3 failed login attempts before this transaction)
+  - High-risk merchant category: +8 (category 'wire_transfer')"
+TXN-000541,2026-04-05T23:13:11Z,U0051,213.87,USD,DEV-ATK-000,192.0.2.190,72.7,AU,Sydney,-33.8175,151.1792,crypto_exchange,1334,3,account_takeover,93,BLOCK,Unusual transaction amount; New device; New country; High-risk IP; Failed logins; High-risk merchant category,"{""Unusual transaction amount"": 20, ""New device"": 15, ""New country"": 20, ""High-risk IP"": 20, ""Failed logins"": 10, ""High-risk merchant category"": 8}","Risk score: 93/100 -> BLOCK (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Unusual transaction amount: +20 ($213.87 is 8.8x the user's median of $24.36)
+  - New device: +15 (device DEV-ATK-000 not seen before for this user)
+  - New country: +20 (AU not in previously seen countries (US))
+  - High-risk IP: +20 (IP 192.0.2.190 reputation risk 73/100)
+  - Failed logins: +10 (3 failed login attempts before this transaction)
+  - High-risk merchant category: +8 (category 'crypto_exchange')"
+TXN-000542,2026-04-05T23:17:11Z,U0051,221.02,USD,DEV-ATK-000,192.0.2.190,72.7,AU,Sydney,-33.8052,151.1958,crypto_exchange,1334,3,account_takeover,93,BLOCK,Unusual transaction amount; New device; New country; High-risk IP; Failed logins; High-risk merchant category,"{""Unusual transaction amount"": 20, ""New device"": 15, ""New country"": 20, ""High-risk IP"": 20, ""Failed logins"": 10, ""High-risk merchant category"": 8}","Risk score: 93/100 -> BLOCK (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Unusual transaction amount: +20 ($221.02 is 9.1x the user's median of $24.36)
+  - New device: +15 (device DEV-ATK-000 not seen before for this user)
+  - New country: +20 (AU not in previously seen countries (US))
+  - High-risk IP: +20 (IP 192.0.2.190 reputation risk 73/100)
+  - Failed logins: +10 (3 failed login attempts before this transaction)
+  - High-risk merchant category: +8 (category 'crypto_exchange')"
+TXN-000489,2026-04-01T21:59:38Z,U0014,680.23,USD,DEV-ATK-008,192.0.2.191,77.2,JP,Tokyo,35.6989,139.6526,retail,1509,6,account_takeover,90,BLOCK,Unusual transaction amount; New device; New country; High-risk IP; Failed logins,"{""Unusual transaction amount"": 20, ""New device"": 15, ""New country"": 20, ""High-risk IP"": 20, ""Failed logins"": 15}","Risk score: 90/100 -> BLOCK (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Unusual transaction amount: +20 ($680.23 is 10.0x the user's median of $68.27)
+  - New device: +15 (device DEV-ATK-008 not seen before for this user)
+  - New country: +20 (JP not in previously seen countries (US))
+  - High-risk IP: +20 (IP 192.0.2.191 reputation risk 77/100)
+  - Failed logins: +15 (6 failed login attempts before this transaction)"
+TXN-000491,2026-04-02T05:05:56Z,U0005,445.54,USD,DEV-ATK-010,198.51.100.13,80.1,BR,Sao Paulo,-23.5673,-46.6354,retail,676,6,account_takeover,90,BLOCK,Unusual transaction amount; New device; New country; High-risk IP; Failed logins,"{""Unusual transaction amount"": 20, ""New device"": 15, ""New country"": 20, ""High-risk IP"": 20, ""Failed logins"": 15}","Risk score: 90/100 -> BLOCK (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Unusual transaction amount: +20 ($445.54 is 11.3x the user's median of $39.42)
+  - New device: +15 (device DEV-ATK-010 not seen before for this user)
+  - New country: +20 (BR not in previously seen countries (US))
+  - High-risk IP: +20 (IP 198.51.100.13 reputation risk 80/100)
+  - Failed logins: +15 (6 failed login attempts before this transaction)"
+TXN-000644,2026-04-13T15:44:15Z,U0026,1868.4,USD,DEV-ATK-005,192.0.2.40,83.3,NG,Lagos,6.5183,3.4254,retail,449,7,account_takeover,90,BLOCK,Unusual transaction amount; New device; New country; High-risk IP; Failed logins,"{""Unusual transaction amount"": 20, ""New device"": 15, ""New country"": 20, ""High-risk IP"": 20, ""Failed logins"": 15}","Risk score: 90/100 -> BLOCK (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Unusual transaction amount: +20 ($1,868.40 is 10.5x the user's median of $178.72)
+  - New device: +15 (device DEV-ATK-005 not seen before for this user)
+  - New country: +20 (NG not in previously seen countries (US))
+  - High-risk IP: +20 (IP 192.0.2.40 reputation risk 83/100)
+  - Failed logins: +15 (7 failed login attempts before this transaction)"
+TXN-000576,2026-04-07T16:11:26Z,U0050,1154.93,USD,DEV-ATK-004,198.51.100.86,97.2,BR,Sao Paulo,-23.5809,-46.5925,retail,1360,7,account_takeover,80,BLOCK,Unusual transaction amount; New device; High-risk IP; Failed logins,"{""Unusual transaction amount"": 20, ""New device"": 15, ""High-risk IP"": 30, ""Failed logins"": 15}","Risk score: 80/100 -> BLOCK (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Unusual transaction amount: +20 ($1,154.93 is 12.0x the user's median of $96.52)
+  - New device: +15 (device DEV-ATK-004 not seen before for this user)
+  - High-risk IP: +30 (IP 198.51.100.86 reputation risk 97/100)
+  - Failed logins: +15 (7 failed login attempts before this transaction)"
+TXN-000577,2026-04-07T16:14:26Z,U0050,799.35,USD,DEV-ATK-004,198.51.100.86,97.2,BR,Sao Paulo,-23.5516,-46.6141,retail,1360,7,account_takeover,80,BLOCK,Unusual transaction amount; New device; High-risk IP; Failed logins,"{""Unusual transaction amount"": 20, ""New device"": 15, ""High-risk IP"": 30, ""Failed logins"": 15}","Risk score: 80/100 -> BLOCK (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Unusual transaction amount: +20 ($799.35 is 8.3x the user's median of $96.52)
+  - New device: +15 (device DEV-ATK-004 not seen before for this user)
+  - High-risk IP: +30 (IP 198.51.100.86 reputation risk 97/100)
+  - Failed logins: +15 (7 failed login attempts before this transaction)"
+TXN-000506,2026-04-03T12:30:54Z,U0022,326.43,USD,DEV-TRV-9618,192.0.2.53,55.8,GB,London,51.4968,-0.1468,travel,949,0,impossible_travel,75,BLOCK,New device; New country; High-risk IP; Impossible travel,"{""New device"": 15, ""New country"": 20, ""High-risk IP"": 10, ""Impossible travel"": 30}","Risk score: 75/100 -> BLOCK (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - New device: +15 (device DEV-TRV-9618 not seen before for this user)
+  - New country: +20 (GB not in previously seen countries (DE))
+  - High-risk IP: +10 (IP 192.0.2.53 reputation risk 56/100)
+  - Impossible travel: +30 (937 km in 1.0 h (~937 km/h))"
+TXN-000520,2026-04-04T19:23:56Z,U0035,151.9,USD,DEV-TRV-5446,198.51.100.197,58.6,NG,Lagos,6.4874,3.4259,utilities,552,0,impossible_travel,75,BLOCK,New device; New country; High-risk IP; Impossible travel,"{""New device"": 15, ""New country"": 20, ""High-risk IP"": 10, ""Impossible travel"": 30}","Risk score: 75/100 -> BLOCK (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - New device: +15 (device DEV-TRV-5446 not seen before for this user)
+  - New country: +20 (NG not in previously seen countries (GB))
+  - High-risk IP: +10 (IP 198.51.100.197 reputation risk 59/100)
+  - Impossible travel: +30 (5,024 km in 1.3 h (~3,815 km/h))"
+TXN-000656,2026-04-14T13:14:46Z,U0049,142.53,USD,DEV-TRV-5743,198.51.100.89,69.5,NG,Lagos,6.4833,3.4234,travel,454,0,impossible_travel,75,BLOCK,New device; New country; High-risk IP; Impossible travel,"{""New device"": 15, ""New country"": 20, ""High-risk IP"": 10, ""Impossible travel"": 30}","Risk score: 75/100 -> BLOCK (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - New device: +15 (device DEV-TRV-5743 not seen before for this user)
+  - New country: +20 (NG not in previously seen countries (US))
+  - High-risk IP: +10 (IP 198.51.100.89 reputation risk 70/100)
+  - Impossible travel: +30 (9,613 km in 0.6 h (~15,178 km/h))"
+TXN-000530,2026-04-04T22:37:31Z,U0001,73.96,USD,DEV-U0001-0,203.0.113.173,59.7,BR,Sao Paulo,-23.5919,-46.6404,groceries,694,0,impossible_travel,60,BLOCK,New country; High-risk IP; Impossible travel,"{""New country"": 20, ""High-risk IP"": 10, ""Impossible travel"": 30}","Risk score: 60/100 -> BLOCK (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - New country: +20 (BR not in previously seen countries (US))
+  - High-risk IP: +10 (IP 203.0.113.173 reputation risk 60/100)
+  - Impossible travel: +30 (8,416 km in 1.4 h (~6,158 km/h))"
+TXN-000589,2026-04-08T17:00:10Z,U0032,129.67,USD,DEV-U0032-0,198.51.100.117,52.4,DE,Berlin,52.5383,13.4251,utilities,99,0,impossible_travel,60,BLOCK,New country; High-risk IP; Impossible travel,"{""New country"": 20, ""High-risk IP"": 10, ""Impossible travel"": 30}","Risk score: 60/100 -> BLOCK (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - New country: +20 (DE not in previously seen countries (US))
+  - High-risk IP: +10 (IP 198.51.100.117 reputation risk 52/100)
+  - Impossible travel: +30 (7,084 km in 1.1 h (~6,160 km/h))"
+TXN-000617,2026-04-10T19:13:44Z,U0019,88.3,USD,DEV-U0019-0,203.0.113.185,61.6,SG,Singapore,1.3478,103.7958,travel,1120,0,impossible_travel,60,BLOCK,New country; High-risk IP; Impossible travel,"{""New country"": 20, ""High-risk IP"": 10, ""Impossible travel"": 30}","Risk score: 60/100 -> BLOCK (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - New country: +20 (SG not in previously seen countries (US))
+  - High-risk IP: +10 (IP 203.0.113.185 reputation risk 62/100)
+  - Impossible travel: +30 (15,071 km in 1.1 h (~13,106 km/h))"
+TXN-000500,2026-04-02T18:01:43Z,U0050,159.77,USD,DEV-U0050-0,198.51.100.58,37.0,BR,Sao Paulo,-23.5618,-46.6226,utilities,1355,0,impossible_travel,50,REVIEW,New country; Impossible travel,"{""New country"": 20, ""Impossible travel"": 30}","Risk score: 50/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - New country: +20 (BR not in previously seen countries (US))
+  - Impossible travel: +30 (9,910 km in 0.6 h (~16,517 km/h))"
+TXN-000634,2026-04-12T20:05:58Z,U0002,229.38,USD,DEV-U0002-0,203.0.113.145,32.2,SG,Singapore,1.3359,103.8181,groceries,1309,0,impossible_travel,50,REVIEW,New country; Impossible travel,"{""New country"": 20, ""Impossible travel"": 30}","Risk score: 50/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - New country: +20 (SG not in previously seen countries (AU))
+  - Impossible travel: +30 (6,307 km in 1.5 h (~4,300 km/h))"
+TXN-000485,2026-04-01T17:14:47Z,U0051,22.83,USD,DEV-U0051-0,198.51.100.14,81.4,US,Seattle,47.6249,-122.347,retail,1330,0,velocity_burst,45,REVIEW,Transaction velocity; High-risk IP,"{""Transaction velocity"": 25, ""High-risk IP"": 20}","Risk score: 45/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Transaction velocity: +25 (6 attempts within 10 minutes)
+  - High-risk IP: +20 (IP 198.51.100.14 reputation risk 81/100)"
+TXN-000486,2026-04-01T17:15:12Z,U0051,10.15,USD,DEV-U0051-0,198.51.100.14,81.4,US,Seattle,47.5922,-122.3419,retail,1330,0,velocity_burst,45,REVIEW,Transaction velocity; High-risk IP,"{""Transaction velocity"": 25, ""High-risk IP"": 20}","Risk score: 45/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Transaction velocity: +25 (7 attempts within 10 minutes)
+  - High-risk IP: +20 (IP 198.51.100.14 reputation risk 81/100)"
+TXN-000574,2026-04-07T13:06:28Z,U0009,16.26,USD,DEV-U0009-0,192.0.2.107,77.0,US,Houston,29.8194,-95.2965,retail,1090,1,velocity_burst,45,REVIEW,Transaction velocity; High-risk IP,"{""Transaction velocity"": 25, ""High-risk IP"": 20}","Risk score: 45/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Transaction velocity: +25 (6 attempts within 10 minutes)
+  - High-risk IP: +20 (IP 192.0.2.107 reputation risk 77/100)"
+TXN-000575,2026-04-07T13:07:28Z,U0009,7.92,USD,DEV-U0009-0,192.0.2.107,77.0,US,Houston,29.7388,-95.3777,retail,1090,1,velocity_burst,45,REVIEW,Transaction velocity; High-risk IP,"{""Transaction velocity"": 25, ""High-risk IP"": 20}","Risk score: 45/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Transaction velocity: +25 (7 attempts within 10 minutes)
+  - High-risk IP: +20 (IP 192.0.2.107 reputation risk 77/100)"
+TXN-000550,2026-04-06T09:27:00Z,U0002,14.09,USD,DEV-U0002-0,203.0.113.249,63.6,AU,Sydney,-33.8822,151.2142,crypto_exchange,1303,1,velocity_burst,43,REVIEW,Transaction velocity; High-risk IP; High-risk merchant category,"{""Transaction velocity"": 25, ""High-risk IP"": 10, ""High-risk merchant category"": 8}","Risk score: 43/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Transaction velocity: +25 (6 attempts within 10 minutes)
+  - High-risk IP: +10 (IP 203.0.113.249 reputation risk 64/100)
+  - High-risk merchant category: +8 (category 'crypto_exchange')"
+TXN-000596,2026-04-08T17:27:42Z,U0028,4.85,USD,DEV-U0028-0,203.0.113.33,65.3,US,Miami,25.795,-80.1982,gift_cards,1231,0,velocity_burst,43,REVIEW,Transaction velocity; High-risk IP; High-risk merchant category,"{""Transaction velocity"": 25, ""High-risk IP"": 10, ""High-risk merchant category"": 8}","Risk score: 43/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Transaction velocity: +25 (6 attempts within 10 minutes)
+  - High-risk IP: +10 (IP 203.0.113.33 reputation risk 65/100)
+  - High-risk merchant category: +8 (category 'gift_cards')"
+TXN-000513,2026-04-04T13:58:59Z,U0054,629.11,USD,DEV-U0054-0,198.51.100.132,3.9,US,Houston,29.7092,-95.3767,gift_cards,766,0,amount_spike,38,REVIEW,Unusual transaction amount; High-risk merchant category,"{""Unusual transaction amount"": 30, ""High-risk merchant category"": 8}","Risk score: 38/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Unusual transaction amount: +30 ($629.11 is 12.3x the user's median of $51.12)
+  - High-risk merchant category: +8 (category 'gift_cards')"
+TXN-000642,2026-04-13T14:50:48Z,U0050,1238.5,USD,DEV-U0050-0,192.0.2.171,7.6,US,Los Angeles,34.0366,-118.2022,crypto_exchange,1366,0,amount_spike,38,REVIEW,Unusual transaction amount; High-risk merchant category,"{""Unusual transaction amount"": 30, ""High-risk merchant category"": 8}","Risk score: 38/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Unusual transaction amount: +30 ($1,238.50 is 12.8x the user's median of $96.52)
+  - High-risk merchant category: +8 (category 'crypto_exchange')"
+TXN-000483,2026-04-01T17:13:43Z,U0051,11.38,USD,DEV-U0051-0,198.51.100.14,81.4,US,Seattle,47.5545,-122.3075,retail,1330,0,velocity_burst,35,REVIEW,Transaction velocity; High-risk IP,"{""Transaction velocity"": 15, ""High-risk IP"": 20}","Risk score: 35/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Transaction velocity: +15 (4 attempts within 10 minutes)
+  - High-risk IP: +20 (IP 198.51.100.14 reputation risk 81/100)"
+TXN-000484,2026-04-01T17:14:12Z,U0051,9.55,USD,DEV-U0051-0,198.51.100.14,81.4,US,Seattle,47.6608,-122.3395,retail,1330,1,velocity_burst,35,REVIEW,Transaction velocity; High-risk IP,"{""Transaction velocity"": 15, ""High-risk IP"": 20}","Risk score: 35/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Transaction velocity: +15 (5 attempts within 10 minutes)
+  - High-risk IP: +20 (IP 198.51.100.14 reputation risk 81/100)"
+TXN-000572,2026-04-07T13:04:31Z,U0009,17.14,USD,DEV-U0009-0,192.0.2.107,77.0,US,Houston,29.7353,-95.4026,retail,1090,1,velocity_burst,35,REVIEW,Transaction velocity; High-risk IP,"{""Transaction velocity"": 15, ""High-risk IP"": 20}","Risk score: 35/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Transaction velocity: +15 (4 attempts within 10 minutes)
+  - High-risk IP: +20 (IP 192.0.2.107 reputation risk 77/100)"
+TXN-000573,2026-04-07T13:05:23Z,U0009,15.21,USD,DEV-U0009-0,192.0.2.107,77.0,US,Houston,29.7483,-95.3763,retail,1090,0,velocity_burst,35,REVIEW,Transaction velocity; High-risk IP,"{""Transaction velocity"": 15, ""High-risk IP"": 20}","Risk score: 35/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Transaction velocity: +15 (5 attempts within 10 minutes)
+  - High-risk IP: +20 (IP 192.0.2.107 reputation risk 77/100)"
+TXN-000651,2026-04-13T19:27:25Z,U0026,16.38,USD,DEV-U0026-0,203.0.113.26,59.8,US,Seattle,47.5736,-122.3398,retail,449,1,velocity_burst,35,REVIEW,Transaction velocity; High-risk IP,"{""Transaction velocity"": 25, ""High-risk IP"": 10}","Risk score: 35/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Transaction velocity: +25 (6 attempts within 10 minutes)
+  - High-risk IP: +10 (IP 203.0.113.26 reputation risk 60/100)"
+TXN-000548,2026-04-06T09:25:33Z,U0002,9.63,USD,DEV-U0002-0,203.0.113.249,63.6,AU,Sydney,-33.9032,151.1956,crypto_exchange,1303,0,velocity_burst,33,REVIEW,Transaction velocity; High-risk IP; High-risk merchant category,"{""Transaction velocity"": 15, ""High-risk IP"": 10, ""High-risk merchant category"": 8}","Risk score: 33/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Transaction velocity: +15 (4 attempts within 10 minutes)
+  - High-risk IP: +10 (IP 203.0.113.249 reputation risk 64/100)
+  - High-risk merchant category: +8 (category 'crypto_exchange')"
+TXN-000549,2026-04-06T09:26:34Z,U0002,2.19,USD,DEV-U0002-0,203.0.113.249,63.6,AU,Sydney,-33.9216,151.1612,crypto_exchange,1303,1,velocity_burst,33,REVIEW,Transaction velocity; High-risk IP; High-risk merchant category,"{""Transaction velocity"": 15, ""High-risk IP"": 10, ""High-risk merchant category"": 8}","Risk score: 33/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Transaction velocity: +15 (5 attempts within 10 minutes)
+  - High-risk IP: +10 (IP 203.0.113.249 reputation risk 64/100)
+  - High-risk merchant category: +8 (category 'crypto_exchange')"
+TXN-000593,2026-04-08T17:26:28Z,U0028,8.08,USD,DEV-U0028-0,203.0.113.33,65.3,US,Miami,25.7043,-80.1932,gift_cards,1231,0,velocity_burst,33,REVIEW,Transaction velocity; High-risk IP; High-risk merchant category,"{""Transaction velocity"": 15, ""High-risk IP"": 10, ""High-risk merchant category"": 8}","Risk score: 33/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Transaction velocity: +15 (4 attempts within 10 minutes)
+  - High-risk IP: +10 (IP 203.0.113.33 reputation risk 65/100)
+  - High-risk merchant category: +8 (category 'gift_cards')"
+TXN-000594,2026-04-08T17:27:07Z,U0028,9.4,USD,DEV-U0028-0,203.0.113.33,65.3,US,Miami,25.7441,-80.2337,gift_cards,1231,1,velocity_burst,33,REVIEW,Transaction velocity; High-risk IP; High-risk merchant category,"{""Transaction velocity"": 15, ""High-risk IP"": 10, ""High-risk merchant category"": 8}","Risk score: 33/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Transaction velocity: +15 (5 attempts within 10 minutes)
+  - High-risk IP: +10 (IP 203.0.113.33 reputation risk 65/100)
+  - High-risk merchant category: +8 (category 'gift_cards')"
+TXN-000487,2026-04-01T18:44:14Z,U0001,351.79,USD,DEV-U0001-0,203.0.113.141,10.5,US,Chicago,41.8683,-87.6108,retail,691,0,amount_spike,30,REVIEW,Unusual transaction amount,"{""Unusual transaction amount"": 30}","Risk score: 30/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Unusual transaction amount: +30 ($351.79 is 13.3x the user's median of $26.53)"
+TXN-000531,2026-04-04T23:27:23Z,U0021,30.82,USD,DEV-U0021-0,198.51.100.199,96.5,US,Houston,29.7353,-95.347,groceries,264,0,ip_anomaly,30,REVIEW,High-risk IP,"{""High-risk IP"": 30}","Risk score: 30/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - High-risk IP: +30 (IP 198.51.100.199 reputation risk 96/100)"
+TXN-000532,2026-04-05T09:34:55Z,U0055,44.43,USD,DEV-U0055-0,198.51.100.187,94.8,US,Chicago,41.8563,-87.6462,peer_transfer,379,0,ip_anomaly,30,REVIEW,High-risk IP,"{""High-risk IP"": 30}","Risk score: 30/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - High-risk IP: +30 (IP 198.51.100.187 reputation risk 95/100)"
+TXN-000534,2026-04-05T11:00:49Z,U0044,12.39,USD,DEV-U0044-0,192.0.2.228,89.5,AU,Sydney,-33.8915,151.2155,travel,989,0,ip_anomaly,30,REVIEW,High-risk IP,"{""High-risk IP"": 30}","Risk score: 30/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - High-risk IP: +30 (IP 192.0.2.228 reputation risk 90/100)"
+TXN-000600,2026-04-09T09:48:44Z,U0012,470.09,USD,DEV-U0012-0,192.0.2.183,14.6,US,San Francisco,37.7893,-122.437,retail,262,0,amount_spike,30,REVIEW,Unusual transaction amount,"{""Unusual transaction amount"": 30}","Risk score: 30/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - Unusual transaction amount: +30 ($470.09 is 20.5x the user's median of $22.91)"
+TXN-000606,2026-04-09T18:12:10Z,U0049,70.09,USD,DEV-U0049-0,198.51.100.163,88.4,US,Chicago,41.8987,-87.5657,utilities,449,0,ip_anomaly,30,REVIEW,High-risk IP,"{""High-risk IP"": 30}","Risk score: 30/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - High-risk IP: +30 (IP 198.51.100.163 reputation risk 88/100)"
+TXN-000633,2026-04-12T19:34:54Z,U0040,13.51,USD,DEV-U0040-0,198.51.100.116,92.2,US,Seattle,47.6483,-122.3748,travel,558,0,ip_anomaly,30,REVIEW,High-risk IP,"{""High-risk IP"": 30}","Risk score: 30/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - High-risk IP: +30 (IP 198.51.100.116 reputation risk 92/100)"
+TXN-000657,2026-04-14T13:43:00Z,U0050,89.86,USD,DEV-U0050-0,192.0.2.82,88.8,US,Los Angeles,34.055,-118.2798,travel,1367,0,ip_anomaly,30,REVIEW,High-risk IP,"{""High-risk IP"": 30}","Risk score: 30/100 -> REVIEW (REVIEW >= 30, BLOCK >= 60)
+Triggered controls:
+  - High-risk IP: +30 (IP 192.0.2.82 reputation risk 89/100)"
