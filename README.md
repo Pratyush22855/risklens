@@ -23,7 +23,7 @@ I'm a student, not a practicing fraud engineer, so the goal was to learn the sha
 | **Operational decisioning** | Configurable ALLOW / REVIEW / BLOCK thresholds and an analyst-ready flagged queue |
 | **Data analysis** | Seeded synthetic data, per-scenario breakdowns, control-frequency analysis (`src/reporting.py`) |
 | **Python engineering** | Typed, modular code with a single config object and no framework bloat |
-| **Testing and CI** | 39 pytest tests; GitHub Actions runs them plus a full pipeline smoke test |
+| **Testing and CI** | 55 pytest tests; GitHub Actions runs them plus a full pipeline smoke test |
 
 ## Architecture
 
@@ -107,7 +107,7 @@ Two honest observations from this table: velocity bursts are only caught once th
 
 ## Tech stack
 
-Python 3.11+ · Pandas · NumPy · Matplotlib · Pytest · GitHub Actions
+Python 3.11+ · Pandas · NumPy · Matplotlib · Pytest · GitHub Actions · Streamlit (optional upload page)
 
 ## Running the project
 
@@ -132,13 +132,35 @@ python main.py
 
 Optional flags: `python main.py --seed 7 --users 80` for different reproducible data.
 
+### Analyze your own data
+
+**Option A: upload page (browser)**
+
+```bash
+pip install -r requirements-app.txt
+streamlit run app.py
+```
+
+Streamlit prints a local address (usually http://localhost:8501). Upload a CSV in the sidebar (or use the built-in sample) to see metrics, charts, the flagged-transaction table, a per-transaction explanation, and CSV downloads. Everything runs locally; nothing is uploaded to any server.
+
+**Option B: command line**
+
+```bash
+python main.py --input path/to/your_transactions.csv
+```
+
+Results are written to `output/custom/` so the committed sample results are never overwritten.
+
+**Required CSV columns:** `transaction_id`, `user_id`, `timestamp`, `amount`, `device_id`, `country`, `latitude`, `longitude`.
+**Optional columns:** `currency`, `ip_address`, `ip_risk_score`, `merchant_category`, `account_age_days`, `failed_login_attempts`. If one is missing, a neutral default is used and the control that depends on it simply cannot fire; the app tells you which defaults were applied. The upload page has a "Download CSV template" button showing the exact format. Bad files (missing columns, unreadable dates, negative amounts, duplicate IDs) get a plain-English error instead of a crash.
+
 ## Testing
 
 ```bash
 python -m pytest -q
 ```
 
-The 39 tests cover each control, score capping at 100, threshold-to-decision mapping, the no-baseline (cold start) behavior, blocked events not polluting a user's baseline, generator reproducibility, and a check that every generated IP address comes from the reserved documentation ranges. CI runs the tests and the full pipeline on Python 3.11 and 3.12 (`.github/workflows/tests.yml`).
+The 55 tests cover each control, score capping at 100, threshold-to-decision mapping, the no-baseline (cold start) behavior, blocked events not polluting a user's baseline, generator reproducibility, and a check that every generated IP address comes from the reserved documentation ranges. CI runs the tests and the full pipeline on Python 3.11 and 3.12 (`.github/workflows/tests.yml`).
 
 ## Project limitations
 
@@ -147,6 +169,7 @@ The 39 tests cover each control, score capping at 100, threshold-to-decision map
 - **This is not a production fraud system.** It has no real-time processing, identity verification, or case management.
 - **Thresholds are not calibrated on real financial institution data.** The scenario table above shows internal consistency, not accuracy.
 - **False positives and false negatives would need to be evaluated in a production system.** There are no real labeled outcomes here to measure precision or recall against.
+- **Uploaded data is only as good as its columns.** Baseline controls need several past transactions per user, and geographic controls need accurate coordinates. The upload page is for exploration and is not an accredited data-handling pipeline; do not upload real customer data.
 - **Real systems need many more signals**: authentication strength, identity and KYC data, richer behavioral and device fingerprints, network intelligence, and regulatory and compliance context.
 - Known design gaps: a first-time user has no baseline, so baseline controls stay silent; the travel control uses the last *trusted* location only; a compromised device the user has used before would not trigger the new-device control.
 
@@ -168,11 +191,13 @@ These are ideas, **not** implemented features:
 
 ```
 risklens/
-├── main.py                  # CLI entry point
+├── main.py                  # CLI entry point (synthetic data or --input your.csv)
+├── app.py                   # optional Streamlit upload page
 ├── src/
 │   ├── models.py            # Transaction, RiskSignal, RiskAssessment, UserHistory
 │   ├── rules.py             # RuleConfig + the nine controls
 │   ├── risk_engine.py       # scoring, decisions, explanations
+│   ├── loader.py            # validation for user-supplied CSVs
 │   ├── data_generator.py    # seeded synthetic data
 │   ├── reporting.py         # summaries and CSV/JSON output
 │   ├── visualization.py     # matplotlib charts

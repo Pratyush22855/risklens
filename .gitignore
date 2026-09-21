@@ -27,3 +27,6 @@ Thumbs.db
 
 # Note: data/, output/ and docs/*.png are committed on purpose so the
 # repository shows real, reproducible results (`python main.py` regenerates them).
+
+# Results from scoring your own CSV (python main.py --input ...)
+output/custom/

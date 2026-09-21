@@ -1,4 +1,4 @@
-"""Matplotlib charts saved as PNG files (no interactive display)."""
+"""Matplotlib charts. Each function returns a Figure and optionally saves a PNG."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -8,6 +8,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import pandas as pd  # noqa: E402
+from matplotlib.figure import Figure  # noqa: E402
 
 from src.reporting import DECISION_ORDER, control_stats, decisions_by_scenario  # noqa: E402
 from src.rules import RuleConfig  # noqa: E402
@@ -15,13 +16,14 @@ from src.rules import RuleConfig  # noqa: E402
 COLORS = {"ALLOW": "#2e8b57", "REVIEW": "#e0a100", "BLOCK": "#c0392b"}
 
 
-def _save(fig: plt.Figure, path: Path) -> None:
+def _finish(fig: Figure, path: Path | None) -> Figure:
     fig.tight_layout()
-    fig.savefig(path, dpi=150)
-    plt.close(fig)
+    if path is not None:
+        fig.savefig(path, dpi=150)
+    return fig
 
 
-def plot_score_distribution(scored: pd.DataFrame, config: RuleConfig, path: Path) -> None:
+def plot_score_distribution(scored: pd.DataFrame, config: RuleConfig, path: Path | None = None) -> Figure:
     fig, ax = plt.subplots(figsize=(8, 4.5))
     ax.hist(scored["risk_score"], bins=range(0, 105, 5), color="#4a6fa5", edgecolor="white")
     ax.axvline(config.review_threshold, color=COLORS["REVIEW"], linestyle="--",
@@ -31,32 +33,32 @@ def plot_score_distribution(scored: pd.DataFrame, config: RuleConfig, path: Path
     ax.set_yscale("log")
     ax.set_xlabel("Risk score (0-100)")
     ax.set_ylabel("Transactions (log scale)")
-    ax.set_title("RiskLens: Risk Score Distribution (synthetic data)")
+    ax.set_title("RiskLens: Risk Score Distribution")
     ax.legend()
-    _save(fig, path)
+    return _finish(fig, path)
 
 
-def plot_decision_distribution(scored: pd.DataFrame, path: Path) -> None:
+def plot_decision_distribution(scored: pd.DataFrame, path: Path | None = None) -> Figure:
     counts = scored["decision"].value_counts().reindex(DECISION_ORDER, fill_value=0)
     fig, ax = plt.subplots(figsize=(6, 4.5))
     bars = ax.bar(counts.index, counts.values, color=[COLORS[d] for d in counts.index])
     ax.bar_label(bars)
     ax.set_ylabel("Transactions")
-    ax.set_title("RiskLens: Decision Distribution (synthetic data)")
-    _save(fig, path)
+    ax.set_title("RiskLens: Decision Distribution")
+    return _finish(fig, path)
 
 
-def plot_control_frequency(scored: pd.DataFrame, path: Path) -> None:
+def plot_control_frequency(scored: pd.DataFrame, path: Path | None = None) -> Figure:
     stats = control_stats(scored).sort_values("times_triggered")
     fig, ax = plt.subplots(figsize=(8, 4.5))
     bars = ax.barh(stats["control"], stats["times_triggered"], color="#4a6fa5")
     ax.bar_label(bars)
     ax.set_xlabel("Times triggered")
     ax.set_title("RiskLens: Control Trigger Frequency")
-    _save(fig, path)
+    return _finish(fig, path)
 
 
-def plot_decisions_by_scenario(scored: pd.DataFrame, path: Path) -> None:
+def plot_decisions_by_scenario(scored: pd.DataFrame, path: Path | None = None) -> Figure:
     counts = decisions_by_scenario(scored)
     totals = counts.sum(axis=1)
     share = counts.div(totals, axis=0) * 100
@@ -68,21 +70,23 @@ def plot_decisions_by_scenario(scored: pd.DataFrame, path: Path) -> None:
     ax.set_ylabel("Synthetic scenario label")
     ax.set_title("RiskLens: Decisions by Synthetic Scenario")
     ax.legend(title="decision", loc="lower left", bbox_to_anchor=(1.01, 0))
-    _save(fig, path)
+    return _finish(fig, path)
 
 
 def generate_all_charts(scored: pd.DataFrame, config: RuleConfig, docs_dir: Path) -> list[Path]:
-    """Render every chart and return the written file paths."""
+    """Render every applicable chart to PNG and return the written paths."""
     docs_dir.mkdir(parents=True, exist_ok=True)
     jobs = {
         "risk_score_distribution.png": lambda p: plot_score_distribution(scored, config, p),
         "decision_distribution.png": lambda p: plot_decision_distribution(scored, p),
-        "control_frequency.png": lambda p: plot_control_frequency(scored, p),
-        "decisions_by_scenario.png": lambda p: plot_decisions_by_scenario(scored, p),
     }
+    if not control_stats(scored).empty:
+        jobs["control_frequency.png"] = lambda p: plot_control_frequency(scored, p)
+    if "scenario" in scored.columns:
+        jobs["decisions_by_scenario.png"] = lambda p: plot_decisions_by_scenario(scored, p)
     written = []
     for name, draw in jobs.items():
         path = docs_dir / name
-        draw(path)
+        plt.close(draw(path))
         written.append(path)
     return written

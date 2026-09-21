@@ -52,7 +52,9 @@ def build_summary(scored: pd.DataFrame, config: RuleConfig, seed: int) -> dict[s
         },
         "thresholds": {"review": config.review_threshold, "block": config.block_threshold},
         "control_frequency": control_stats(scored).to_dict(orient="records"),
-        "decisions_by_scenario": decisions_by_scenario(scored).to_dict(orient="index"),
+        "decisions_by_scenario": (
+            decisions_by_scenario(scored).to_dict(orient="index") if "scenario" in scored.columns else {}
+        ),
         "top_risk_transactions": top.to_dict(orient="records"),
     }
 

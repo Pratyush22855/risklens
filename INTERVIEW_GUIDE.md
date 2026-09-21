@@ -2,7 +2,7 @@
 
 How to talk about this project honestly and confidently. You are a student who built a thoughtful learning project, not a fraud engineer. That is a strength if you frame it correctly: you can explain every line, you know the limits, and you chose transparency on purpose.
 
-**Numbers from the default run** (verify with `python main.py` before an interview): 663 synthetic transactions, 614 ALLOW / 27 REVIEW / 22 BLOCK, 9 controls, 39 tests.
+**Numbers from the default run** (verify with `python main.py` before an interview): 663 synthetic transactions, 614 ALLOW / 27 REVIEW / 22 BLOCK, 9 controls, 55 tests.
 
 ---
 
@@ -16,7 +16,7 @@ How to talk about this project honestly and confidently. You are a student who b
 >
 > Each transaction is checked against nine controls. Some compare against the user's own history, like a new device or an amount far above their median. Others look at context, like IP reputation, failed logins, or how fast someone would have to travel between two locations. Every control adds a documented number of points, the total is capped at 100, and thresholds turn it into allow, review, or block.
 >
-> The part I care most about is the explanation. Each decision lists the triggered controls and points, so the score is like a receipt. I also wrote 39 tests and set up CI. And I was careful about the limits: the data is synthetic and the weights are illustrative, so I treat it as a learning tool and a baseline, not a production system."
+> The part I care most about is the explanation. Each decision lists the triggered controls and points, so the score is like a receipt. I also wrote 55 tests and set up CI. And I was careful about the limits: the data is synthetic and the weights are illustrative, so I treat it as a learning tool and a baseline, not a production system."
 
 ---
 
