@@ -6,4 +6,4 @@ The most useful lesson was how much of risk work is trade-offs. A weak signal al
 
 It uses Python, pandas, NumPy, Matplotlib, pytest, and GitHub Actions, with 39 tests and entirely synthetic data.
 
-GitHub: [PASTE_REPOSITORY_URL]
+GitHub: https://github.com/Pratyush22855/risklens
